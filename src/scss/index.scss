@@ -168,9 +168,8 @@ html{
     .main{
         height: calc(100vh - 36px);
         overflow: auto;
-        border-top: 1px solid #757575;
+        border-top: 1px solid white;
         box-sizing: border-box;
-        box-shadow: 0 2px 2px 0px #5d5d5d inset;
     }
 }
 
