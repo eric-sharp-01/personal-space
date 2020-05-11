@@ -93,7 +93,7 @@ export default class Resume extends React.Component {
 
         let projects = resume.projects.map((elem, index) => {
             let descriptions = elem.description.map((d, i) => {
-            return <Box className="project-description">{d.title}: {d.value}</Box>;
+            return <Box key={i} className="project-description">{d.title}: {d.value}</Box>;
             })
 
             return <Grid item xs={12} key={index}>
