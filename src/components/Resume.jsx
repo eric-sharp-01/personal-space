@@ -206,7 +206,7 @@ let resume = {
         },
         {
             "name": "TypeScript",
-            "level": 2
+            "level": 3
         },
         {
             "name": "JavaScript(ES6)",
@@ -278,7 +278,7 @@ let resume = {
             "description": [
                 "Database Designing and implementation",
                 "Building website using Django Framework",
-                "Back-end programming using Python",
+                "Back-end programming using Python and PHP",
                 "Front-end development using Jquery",
                 "Creating plugins using Jquery"
             ]
@@ -290,7 +290,7 @@ let resume = {
             "position": "Programmer",
             "description": [
                 "Building cell phone Application using Cordova and IONIC",
-                "Writing static web pages using HTML and CSS3",
+                "Writing static web pages using HTML and LESS",
                 "Back-end programming using PHP"
             ]
         },
@@ -304,7 +304,7 @@ let resume = {
                 "Using EPPLUS library to read and write excel files",
                 "Using OpenXML library to read and write word files",
                 "Writing SQL code for SQL SERVER",
-                "Writing HTML/CSS for websites",
+                "Writing HTML/LESS for websites",
                 "Writing ducuments for applications"
             ]
         },
@@ -317,7 +317,8 @@ let resume = {
                 "Using C#, ASP.NET Core, Javascript(ES6), React.js and Redux to develop websites.",
                 "Writing SQL code for SQL SERVER",
                 "Writing HTML/SCSS for websites",
-                "Writing Restful Web APIs using ASP.NET Core WEB API"
+                "Writing Restful Web APIs using ASP.NET Core WEB API",
+                "Developing the mobile application using React Native"
             ]
         }
     ],
