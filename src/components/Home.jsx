@@ -1,49 +1,32 @@
 import React from 'react';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import AccountBoxIcon from '@material-ui/icons/AccountBox';
-import PhoneAndroidIcon from '@material-ui/icons/PhoneAndroid';
-import Button from '@material-ui/core/Button';
-import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
+import { Container } from '@material-ui/core';
 
-export default class Home extends React.Component {
-
-    openResume = () =>{
-        this.props.history.push("/resume");
-    }
-
-    render(){
-        return <div className="home">
-            <Paper elevation={3} >
-                <div className="content">
-                    <List>
-                        <ListItem>
-                            <ListItemIcon>
-                                <AccountBoxIcon />
-                            </ListItemIcon>
-                            <ListItemText
-                                primary="Name: Yu Pan"
-                            />
-                        </ListItem>
-                        <ListItem>
-                            <ListItemIcon>
-                                <PhoneAndroidIcon />
-                            </ListItemIcon>
-                            <ListItemText
-                                primary="Phone: 0433995186"
-                            />
-                        </ListItem>
-                    </List>
-                </div>
-                <div className="buttons">
-                    <Button variant="contained" color="primary" onClick={this.openResume}>
-                        Resume
-                    </Button>
-                </div>
-            </Paper>
-        </div>;
-    }
-
+const Home =  () => {
+  let items = {
+    nameField: '姓名',
+    name: 'chufeier',
+    addressField: '地址',
+    address: '日蚀大厦 顶层套房',
+    posField: '职业',
+    positions: '卡车司机, 公交车司机'
+  };
+  return <Container maxWidth="lg" className="home">
+    <Box display="flex" flexDirection="column" alignItems="flex-start" className="main-block">
+      <Box>{items.nameField}: {items.name}</Box>
+      <Box>{items.addressField}: {items.address}</Box>
+      <Box>{items.posField}: {items.positions}</Box>
+      <Box position="absolute" className="image-block">
+        <img src="head.jpg" alt="not found"/>
+      </Box>
+    </Box>
+    <Box display="flex" justifyContent="flex-end">
+      <Box className="image-block">
+        <img src="head.jpg" alt="not found"/>
+      </Box>
+    </Box>
+  </Container>;
 }
+
+export default Home;
