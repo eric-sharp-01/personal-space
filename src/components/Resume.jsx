@@ -8,13 +8,13 @@ import { Container } from '@material-ui/core';
 
 const Resume = (props) => {
   let contactElements = resume.contact.map((elem, index) => {
-    return <Box className='contact-detail'>
+    return <Box className='contact-detail' key={index}>
       {elem.name}: {elem.value}
     </Box>;
   })
 
   let summaryElements = resume.summary.map((elem, index) => {
-    return <Box className="summary-detail">
+    return <Box className="summary-detail" key={index}>
       {elem}
     </Box>;
   })
@@ -29,7 +29,7 @@ const Resume = (props) => {
       {level}
     </span>;
     return (
-      <Box display="flex" flexBasis="50%" justifyContent="space-between">
+      <Box display="flex" flexBasis="50%" justifyContent="space-between" key={index}>
         <Typography>{elem.name}</Typography>
         <Typography>{levelElem}</Typography>
       </Box>
