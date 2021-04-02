@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import {
   BrowserRouter as Router,
     Switch,
@@ -8,14 +8,8 @@ import Home from './components/Home';
 import Navbar from './components/Navbar';
 import Resume from './components/Resume';
 import Login from './components/Login';
-import bg from './assets/bg-gta5.jpg';
 
-
-const App = (props) => {
-  useEffect(() => {
-    document.body.style.backgroundImage = `url(${bg})`;
-  }, [])
-  
+const App = (props) => {  
   return <Router>
     <Navbar />
     <div className="main">

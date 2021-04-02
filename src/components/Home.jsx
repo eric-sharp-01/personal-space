@@ -33,7 +33,9 @@ import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import PersonIcon from '@material-ui/icons/Person';
 import FaceIcon from '@material-ui/icons/Face';
 import Axios from 'axios';
+import bg from '../assets/bg-gta5.jpg';
 import cellPhongBg from '../assets/bg-cell-phone.jpg';
+
 const MAIN = 1;
 const RECEIVERS = 2;
 const MESSAGE_BOX = 3;
@@ -43,19 +45,20 @@ const MessageTemplate = function(content, senderId, receiverId) {
   this.receiverId = receiverId;
 }
 
-
 const Home = () => {
   const [screen, setScreen] = useState(1);
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState('');
   const [receivers, setReceivers] = useState([]);
   const [receiver, setReceiver] = useState({});
+  const [currentTime, setCurrentTime] = useState('');
   const username = Cookies.get('username');
   const id = Cookies.get('id');
   const socketRef = useRef();
   const endRef = useRef();
 
   useEffect(() => {
+    document.body.style.backgroundImage = `url(${bg})`;
     let host = window.location.host;
     const socket = new WebSocket(`ws://${host}`);
     socketRef.current = socket;
@@ -75,6 +78,12 @@ const Home = () => {
         })
     });
   }, [id, setMessages]);
+
+  useEffect(() => {
+    setInterval(() => {
+      setCurrentTime(new Date().toTimeString().substr(0, 8));
+    }, 1000);
+  }, [setCurrentTime])
 
   useEffect(() => {
     switch(screen){
@@ -225,7 +234,7 @@ const Home = () => {
     <Box className="section-1">
       <Box className="cell-phone" style={{backgroundImage: `url(${cellPhongBg})`}}>
         <Box className={headerClass}>
-          <Box className="item time">{''}</Box>
+          <Box className="item time">{currentTime}</Box>
           <Box className="empty"></Box>
           <Box className="item"><WifiIcon className="header-icon" /></Box>
           <Box className="item"><SignalCellularAltIcon className="header-icon" /></Box>

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { InputBase, Box, Button } from '@material-ui/core';
 import axios from 'axios';
 import { useHistory } from 'react-router';
@@ -9,6 +9,10 @@ const Login =  () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const history = useHistory();
+
+  useEffect(() => {
+    document.body.style.background = 'white';
+  }, []);
 
   const handleUsernameChange = (e) => {
     setUsername(e.target.value);

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import Hidden from '@material-ui/core/Hidden';
@@ -7,6 +7,10 @@ import StarIcon from '@material-ui/icons/Star';
 import { Container } from '@material-ui/core';
 
 const Resume = (props) => {
+  useEffect(() => {
+    document.body.style.background = '#ececec';
+  }, []);
+
   let contactElements = resume.contact.map((elem, index) => {
     return <Box className='contact-detail' key={index}>
       {elem.name}: {elem.value}
