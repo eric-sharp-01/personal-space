@@ -42,13 +42,13 @@ const Login =  () => {
         <Box className="label-box">
           <AccountBoxIcon />
         </Box>
-        <InputBase value={username} name="username" className="input-box" onChange={handleUsernameChange} onKeyPress={enter} type="text"></InputBase>
+        <InputBase value={username} name="username" className="input-box" onChange={handleUsernameChange} onKeyPress={enter} type="text" placeholder="Username"></InputBase>
       </Box>
       <Box className="row">
         <Box className="label-box">
           <HttpsIcon />
         </Box>
-        <InputBase value={password} name="password" className="input-box" onChange={handlePasswordChange} onKeyPress={enter} type="password"></InputBase>
+        <InputBase value={password} name="password" className="input-box" onChange={handlePasswordChange} onKeyPress={enter} type="password" placeholder="Password"></InputBase>
       </Box>
       <Box className="button-row"><Button variant="contained" color="primary" onClick={send}>Submit</Button></Box>
     </Box>
