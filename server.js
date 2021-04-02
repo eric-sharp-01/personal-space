@@ -8,9 +8,10 @@ const camelcaseObjectDeep = require('camelcase-object-deep');
 
 const db = new Database('web.db', { verbose: console.log });
 let webSockets = {};
-let port = 8080;
+let port = 80;
 if(process.argv.length > 2){
-  port = Number(process.argv[2]);
+  let v = Number(process.argv[2]);
+  port = v > 2000 ? v : 80;
 }
 
 app.use(cookieParser());
