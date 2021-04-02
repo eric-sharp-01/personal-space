@@ -1,5 +1,5 @@
-import React from 'react';
-import { withRouter } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useHistory, withRouter } from 'react-router-dom';
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
 import Button from "@material-ui/core/Button";
 import List from '@material-ui/core/List';
@@ -9,47 +9,62 @@ import ListItemText from '@material-ui/core/ListItemText';
 import HomeIcon from '@material-ui/icons/Home';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
 import MenuIcon from '@material-ui/icons/Menu';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import Axios from 'axios';
 
-class Navbar extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            isDrawerOpen: false
-        }
-    }
-    toggleDrawer = () => {
-        this.setState(prev => ({ isDrawerOpen: !prev.isDrawerOpen }));
-    }
+const Navbar = () => {
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const history = useHistory();
 
-    go = (path) => {
-        this.toggleDrawer();
-        this.props.history.push(path);
-    }
+  const toggleDrawer = () => {
+    setIsDrawerOpen(!isDrawerOpen);
+  }
 
-    render() {
-        return (
-            <div className="navbar-block">
-                <Button onClick={this.toggleDrawer}>
-                    <MenuIcon />
-                </Button>
-                <SwipeableDrawer anchor={'left'} open={this.state.isDrawerOpen} onOpen={this.toggleDrawer} onClose={this.toggleDrawer} className="drawer">
-                    <List className="nav-menu">
-                        <ListItem button onClick={() => this.go('/')}>
-                            <ListItemIcon>
-                                <HomeIcon />
-                            </ListItemIcon>
-                            <ListItemText primary={"Home"} />
-                        </ListItem>
-                        <ListItem button onClick={() => this.go('/resume')}>
-                            <ListItemIcon>
-                                <MenuBookIcon />
-                            </ListItemIcon>
-                            <ListItemText primary={"Resume"} />
-                        </ListItem>
-                    </List>
-                </SwipeableDrawer>
-            </div>);
+  const go = (path) => {
+    setIsDrawerOpen(false);
+    history.push(path);
+  }
+
+
+  const logout = async () => {
+    try {
+      await Axios.get(`/api/logout`);
+      setIsDrawerOpen(false);
+      history.replace('/login');
+    }catch{
+      setIsDrawerOpen(false);
+      history.replace('/login');
     }
+  }
+
+  return (
+    <div className="navbar-block">
+        <Button onClick={toggleDrawer}>
+            <MenuIcon />
+        </Button>
+        <SwipeableDrawer anchor={'left'} open={isDrawerOpen} onOpen={toggleDrawer} onClose={toggleDrawer} className="drawer">
+            <List className="nav-menu">
+                <ListItem button onClick={() => go('/')}>
+                    <ListItemIcon>
+                        <HomeIcon />
+                    </ListItemIcon>
+                    <ListItemText primary={"Home"} />
+                </ListItem>
+                <ListItem button onClick={() => go('/resume')}>
+                    <ListItemIcon>
+                        <MenuBookIcon />
+                    </ListItemIcon>
+                    <ListItemText primary={"Resume"} />
+                </ListItem>
+                <ListItem button onClick={logout}>
+                    <ListItemIcon>
+                        <ExitToAppIcon />
+                    </ListItemIcon>
+                    <ListItemText primary={"Logout"} />
+                </ListItem>
+            </List>
+        </SwipeableDrawer>
+    </div>);
 }
 
 // wrapping the component within the connect HOC and calling the default function directly
