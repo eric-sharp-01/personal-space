@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.ab3609aa.chunk.css",
-    "main.js": "/static/js/main.fc63ad7c.chunk.js",
-    "main.js.map": "/static/js/main.fc63ad7c.chunk.js.map",
+    "main.css": "/static/css/main.88673903.chunk.css",
+    "main.js": "/static/js/main.8e9a5b81.chunk.js",
+    "main.js.map": "/static/js/main.8e9a5b81.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.449c209d.js",
     "runtime-main.js.map": "/static/js/runtime-main.449c209d.js.map",
     "static/js/2.3078a3ef.chunk.js": "/static/js/2.3078a3ef.chunk.js",
     "static/js/2.3078a3ef.chunk.js.map": "/static/js/2.3078a3ef.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.bab22a8ebfc9824f6da898f11fb812bf.js": "/precache-manifest.bab22a8ebfc9824f6da898f11fb812bf.js",
+    "precache-manifest.8de1a1e2c82ea9b8620e85656786fb40.js": "/precache-manifest.8de1a1e2c82ea9b8620e85656786fb40.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.ab3609aa.chunk.css.map": "/static/css/main.ab3609aa.chunk.css.map",
+    "static/css/main.88673903.chunk.css.map": "/static/css/main.88673903.chunk.css.map",
     "static/js/2.3078a3ef.chunk.js.LICENSE.txt": "/static/js/2.3078a3ef.chunk.js.LICENSE.txt",
     "static/media/bg-cell-phone.jpg": "/static/media/bg-cell-phone.b04c611c.jpg",
     "static/media/bg-gta5.jpg": "/static/media/bg-gta5.aa265f18.jpg"
@@ -18,7 +18,7 @@
   "entrypoints": [
     "static/js/runtime-main.449c209d.js",
     "static/js/2.3078a3ef.chunk.js",
-    "static/css/main.ab3609aa.chunk.css",
-    "static/js/main.fc63ad7c.chunk.js"
+    "static/css/main.88673903.chunk.css",
+    "static/js/main.8e9a5b81.chunk.js"
   ]
 }
