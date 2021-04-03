@@ -23,7 +23,6 @@ import FlightTakeoffIcon from '@material-ui/icons/FlightTakeoff';
 import ImageIcon from '@material-ui/icons/Image';
 import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
 import SportsEsportsIcon from '@material-ui/icons/SportsEsports';
-import InputBase from '@material-ui/core/InputBase';
 import Button from '@material-ui/core/Button';
 import SendIcon from '@material-ui/icons/Send';
 import BookmarkIcon from '@material-ui/icons/Bookmark';
@@ -35,6 +34,7 @@ import FaceIcon from '@material-ui/icons/Face';
 import Axios from 'axios';
 import bg from '../assets/bg-gta5.jpg';
 import cellPhongBg from '../assets/bg-cell-phone.jpg';
+import Input from './Input';
 
 const MAIN = 1;
 const RECEIVERS = 2;
@@ -46,7 +46,7 @@ const MessageTemplate = function(content, senderId, receiverId) {
 }
 
 const Home = () => {
-  const [screen, setScreen] = useState(1);
+  const [screen, setScreen] = useState(MAIN);
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState('');
   const [receivers, setReceivers] = useState([]);
@@ -219,7 +219,7 @@ const Home = () => {
           </Box>
         </Box>
         <Box className="action">
-          <InputBase className="input-base" value={message} onKeyPress={enter} onChange={handleMessageChange}/>
+          <Input type="text" onChange={handleMessageChange} onKeyPress={enter} value={message}></Input>
           <Button className="send" variant="contained" onClick={send} disabled={!message}>
             <SendIcon />
           </Button>
@@ -232,19 +232,21 @@ const Home = () => {
   }
   return <Container maxWidth="lg" className="home">
     <Box className="section-1">
-      <Box className="cell-phone" style={{backgroundImage: `url(${cellPhongBg})`}}>
-        <Box className={headerClass}>
-          <Box className="item time">{currentTime}</Box>
-          <Box className="empty"></Box>
-          <Box className="item"><WifiIcon className="header-icon" /></Box>
-          <Box className="item"><SignalCellularAltIcon className="header-icon" /></Box>
-          <Box className="item"><Battery90Icon className="header-icon" /></Box>
-        </Box>
-        {mainScreen}
-        <Box className={footerClass}>
-          <Box className="item"><BookmarkIcon className="footer-icon" /></Box>
-          <Box className="item"><TripOriginIcon className="footer-icon" /></Box>
-          <Box className="item" onClick={back}><ArrowBackIcon className="footer-icon" /></Box>
+      <Box className="cell-phone-box">
+        <Box className="cell-phone" style={{backgroundImage: `url(${cellPhongBg})`}}>
+          <Box className={headerClass}>
+            <Box className="item time">{currentTime}</Box>
+            <Box className="empty"></Box>
+            <Box className="item"><WifiIcon className="header-icon" /></Box>
+            <Box className="item"><SignalCellularAltIcon className="header-icon" /></Box>
+            <Box className="item"><Battery90Icon className="header-icon" /></Box>
+          </Box>
+          {mainScreen}
+          <Box className={footerClass}>
+            <Box className="item"><BookmarkIcon className="footer-icon" /></Box>
+            <Box className="item"><TripOriginIcon className="footer-icon" /></Box>
+            <Box className="item" onClick={back}><ArrowBackIcon className="footer-icon" /></Box>
+          </Box>
         </Box>
       </Box>
     </Box>
